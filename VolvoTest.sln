@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VolvoTest", "VolvoTest\VolvoTest.csproj", "{09EBCAF9-B143-4979-BC7C-E589636D8EA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VolvoTest", "VolvoTest\VolvoTest.csproj", "{09EBCAF9-B143-4979-BC7C-E589636D8EA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VolvoTest.Domain", "VolvoTest.Domain\VolvoTest.Domain.csproj", "{851A08ED-CDF3-47D3-A6C8-009ABDD5C392}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VolvoTest.Test", "VolvoTest.Test\VolvoTest.Test.csproj", "{57DFC66F-192F-4795-996F-FD21B899D4BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VolvoTest.Application", "VolvoTest.Application\VolvoTest.Application.csproj", "{9582389A-1776-4EDA-BFBE-687FCD80C80E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VolvoTest.Repository", "VolvoTest.Repository\VolvoTest.Repository.csproj", "{31EBA3FB-1FBF-40AD-8D7B-79B3BF19EAAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{09EBCAF9-B143-4979-BC7C-E589636D8EA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09EBCAF9-B143-4979-BC7C-E589636D8EA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09EBCAF9-B143-4979-BC7C-E589636D8EA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{851A08ED-CDF3-47D3-A6C8-009ABDD5C392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{851A08ED-CDF3-47D3-A6C8-009ABDD5C392}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{851A08ED-CDF3-47D3-A6C8-009ABDD5C392}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{851A08ED-CDF3-47D3-A6C8-009ABDD5C392}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57DFC66F-192F-4795-996F-FD21B899D4BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57DFC66F-192F-4795-996F-FD21B899D4BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57DFC66F-192F-4795-996F-FD21B899D4BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57DFC66F-192F-4795-996F-FD21B899D4BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9582389A-1776-4EDA-BFBE-687FCD80C80E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9582389A-1776-4EDA-BFBE-687FCD80C80E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9582389A-1776-4EDA-BFBE-687FCD80C80E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9582389A-1776-4EDA-BFBE-687FCD80C80E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31EBA3FB-1FBF-40AD-8D7B-79B3BF19EAAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31EBA3FB-1FBF-40AD-8D7B-79B3BF19EAAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31EBA3FB-1FBF-40AD-8D7B-79B3BF19EAAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31EBA3FB-1FBF-40AD-8D7B-79B3BF19EAAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
