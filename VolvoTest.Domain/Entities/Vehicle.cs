@@ -20,7 +20,7 @@ namespace VolvoTest.Domain.Entities
 
         public override string ToString()
         {
-            return base.ToString();
+            return String.Format("║{0,16}║{1,8}║{2,22}║{3,11}║", ChassisID.Chassis, Type, NumberPassengers, Color);
         }
 
         public void UpdateColor(string color)

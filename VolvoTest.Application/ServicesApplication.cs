@@ -47,29 +47,57 @@ namespace VolvoTest.Application
                     case MenuOption.Exit:
                         MenuExit();
                         break;
+                    default:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine($"[ERROR] - Invalid option, please choose one of the options below.");
+                        Console.ResetColor();
+                        MainMenu();
+                        break;
                 }
             }
             catch (Exception)
             {
-                Console.WriteLine("Invalid option, please choose one of the options below.");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"[ERROR] - Invalid option, please choose one of the options below.");
+                Console.ResetColor();
                 MainMenu();
             }
         }
 
         private void MenuExit()
         {
-
+            if (MenuWriter.Exit())
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
+                MainMenu();
+            }
         }
 
         private void MenuFind()
         {
             try
             {
+                var objVehicle = MenuWriter.Find();
+                var obj = _services.Find($"{objVehicle.ChassisSeries}-{objVehicle.ChassisNumber}");
+                if (obj != null)
+                {
+                    List<IVehicle> listVehicle = new List<IVehicle>();
+                    listVehicle.Add(obj);
+                    MenuWriter.ListAll(listVehicle);
+                }
+                else
+                    MenuWriter.ListAll(null);
 
+                MainMenu();
             }
             catch (DomainException ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"[ERROR] - {ex.Message}");
+                Console.ResetColor();
                 MainMenu();
             }
         }
@@ -78,11 +106,15 @@ namespace VolvoTest.Application
         {
             try
             {
-
+                List<IVehicle> listVehicles = _services.ListAll();
+                MenuWriter.ListAll(listVehicles);
+                MainMenu();
             }
             catch (DomainException ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"[ERROR] - {ex.Message}");
+                Console.ResetColor();
                 MainMenu();
             }
         }
@@ -91,11 +123,15 @@ namespace VolvoTest.Application
         {
             try
             {
-
+                var objVehicle = MenuWriter.Delete();
+                _services.Delete($"{objVehicle.ChassisSeries}-{objVehicle.ChassisNumber}");
+                MainMenu();
             }
             catch (DomainException ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"[ERROR] - {ex.Message}");
+                Console.ResetColor();
                 MainMenu();
             }
         }
@@ -104,11 +140,15 @@ namespace VolvoTest.Application
         {
             try
             {
-
+                var objVehicle = MenuWriter.Update();
+                _services.Update($"{objVehicle.ChassisSeries}-{objVehicle.ChassisNumber}", objVehicle.Color);
+                MainMenu();
             }
             catch (DomainException ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"[ERROR] - {ex.Message}");
+                Console.ResetColor();
                 MainMenu();
             }
         }
@@ -119,10 +159,13 @@ namespace VolvoTest.Application
             {
                 var objvehicle = MenuWriter.Insert();
                 _services.Insert(objvehicle.ChassisSeries, objvehicle.ChassisNumber, objvehicle.TypeVehicle, objvehicle.Color);
+                MainMenu();
             }
             catch (DomainException ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"[ERROR] - {ex.Message}");
+                Console.ResetColor();
                 MainMenu();
             }
         }

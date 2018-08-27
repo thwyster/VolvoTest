@@ -8,7 +8,6 @@ namespace VolvoTest.Domain.Interfaces
     {
         string Chassis { get; }
         string ColorVehicle { get; }
-
         void UpdateColor(string color);
     }
 }

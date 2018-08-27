@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using VolvoTest.Domain.Exceptions;
 using VolvoTest.Domain.Interfaces;
 using VolvoTest.IOC;
 
@@ -44,6 +45,15 @@ namespace VolvoTest.Test
             _services.Insert("AXX", 4777, Domain.Enumerators.TypeVehicle.Car, "Silver");
             _services.Update("AXX-4777", newColor);
             Assert.AreEqual(newColor, _services.Find("AXX-4777").ColorVehicle);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(DomainException),
+        "ChassisID Duplicate!")]
+        public void TestDuplicateChassis()
+        {
+            _services.Insert("AXX", 4777, Domain.Enumerators.TypeVehicle.Car, "Silver");
+            _services.Insert("AXX", 4777, Domain.Enumerators.TypeVehicle.Car, "Silver");
         }
     }
 }

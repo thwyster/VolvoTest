@@ -41,19 +41,28 @@ namespace VolvoTest.Domain.Services
 
         public void Insert(string chassisSeries, int chassisNumber, TypeVehicle typeVehicle, string color)
         {
-            switch (typeVehicle)
+            var objVehicle = this.Find($"{chassisSeries}-{chassisNumber}");
+
+            if (objVehicle == null)
             {
-                case TypeVehicle.Bus:
-                    _repository.Insert(new Bus(chassisNumber, chassisSeries, color));
-                    break;
-                case TypeVehicle.Truck:
-                    _repository.Insert(new Truck(chassisNumber, chassisSeries, color));
-                    break;
-                case TypeVehicle.Car:
-                    _repository.Insert(new Car(chassisNumber, chassisSeries, color));
-                    break;
-                default:
-                    throw new DomainException("Type invalid");
+                switch (typeVehicle)
+                {
+                    case TypeVehicle.Bus:
+                        _repository.Insert(new Bus(chassisNumber, chassisSeries, color));
+                        break;
+                    case TypeVehicle.Truck:
+                        _repository.Insert(new Truck(chassisNumber, chassisSeries, color));
+                        break;
+                    case TypeVehicle.Car:
+                        _repository.Insert(new Car(chassisNumber, chassisSeries, color));
+                        break;
+                    default:
+                        throw new DomainException("Type invalid");
+                }
+            }
+            else
+            {
+                throw new DomainException("ChassisID Duplicate!");
             }
         }
 
